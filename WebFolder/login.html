@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <title>
+            <!--4dvar title-->
+        </title>
+        <link rel="stylesheet" type="text/css" href="/css/common.css">
+        <link rel="stylesheet" type="text/css" href="/css/centered_content.css">
+        <link rel="stylesheet" type="text/css" href="/css/course.css">
+        <link rel="stylesheet" type="text/css" href="/css/form.css">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+        <div class="xycentered-box-medium">
+            <div class="centered-content">
+                <br>
+                <br>
+                <br>
+                <h2>Vennligst logg deg inn slik at du kan melde deg på:</h2>
+                er du ikke medlem? <a href="/register" class="link-as-button">registrer deg her</a>
+                <h2 id="errTarget"></h2>
+                <br>
+                <form action="/login" method="POST">
+                    <div class="flex-row">
+                        <div class="form-group">
+                            <label for="email">Epost</label>
+                            <input type="text" id="email" name="email">
+                        </div>
+                    </div>
+                    <div class="flex-row">
+                        <div class="form-group">
+                            <label for="password">Passord</label>
+                            <input type="password" id="password" name="password">
+                        </div>
+                    </div>
+                    <div class="centered-content">
+                        <input type="submit" value="Log inn" id="loginButton">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </body>
+    <script type="text/javascript" src="/js/form_validator.js"></script>
+    <script type="text/javascript" src="/js/ajax_form_post.js"></script>
+    <script>
+        let fn = ajax_form_post.bind(null, {email: "email", password: "password"}, "errTarget", "/login");
+        form_validator("loginButton", [["email", "epost må fylles ut"], ["password", "passord må fylles ut"]], fn);
+    </script>
+</html>

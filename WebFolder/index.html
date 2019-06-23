@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <title>
+            <!--4dvar title-->
+        </title>
+        <link rel="stylesheet" type="text/css" href="/css/common.css">
+        <link rel="stylesheet" type="text/css" href="/css/centered_content.css">
+        <link rel="stylesheet" type="text/css" href="/css/course.css">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+        <div class="centered-page">
+            <div class="centered-heading">
+                <h1>
+                    Kurs
+                </h1>
+            </div>
+            <div class="centered-content">
+            <a href="/mycourses" class="link-as-button">Mine kurs</a>
+            <br>
+            <!--4dloop [course]-->
+                <div class="course-box">
+                    <div class="course-box-content">
+                        <img class="course-box-img"src="/static/course_images/<!--4dvar [course]image-->">
+                        <div class="course-box-name">
+                            <a href="/course/<!--4dvar [course]link_name-->"><!--4dvar [course]name--></a>
+                        </div>
+                        <div class="course-box-hook">
+                            <!--4dvar [course]hook-->
+                        </div>
+                    </div>
+                </div>
+                <!--4dendloop-->
+            </div>
+        </div>
+    </body>
+</html>

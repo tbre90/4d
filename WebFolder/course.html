@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <title>
+            <!--4dvar title-->
+        </title>
+        <link rel="stylesheet" type="text/css" href="/css/common.css">
+        <link rel="stylesheet" type="text/css" href="/css/centered_content.css">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+        <div class="xycentered-box-medium">
+            <div class="centered-content">
+                <img src="/static/course_images/<!--4dvar [course]image-->">
+
+                <div class="centered-heading">
+                    <h2>
+                        <!--4dvar [course]name-->
+                    </h2>
+                </div>
+                <div class="centered-text">
+                    <!--4dvar [course]description-->
+                </div>
+
+                <br>
+                <br>
+                <br>
+                    <!--4dloop [course_schedule]-->
+                    <a href="/signup/<!--4dvar [course]link_name-->?when=<!--4dvar [course_schedule]link_name-->" class="link-as-button">
+                       <!--4dvar [course_schedule]time--> <!--4dvar [course_schedule]date-->
+                    </a>
+                    <!--4dendloop-->
+                <br>
+                <a href="/" class="link-as-button">Tilbake til hovedside</a>
+            </div>
+        </div>
+    </body>
+</html>

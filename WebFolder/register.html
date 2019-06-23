@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <title>
+            <!--4dvar title-->
+        </title>
+        <link rel="stylesheet" type="text/css" href="/css/common.css">
+        <link rel="stylesheet" type="text/css" href="/css/centered_content.css">
+        <link rel="stylesheet" type="text/css" href="/css/course.css">
+        <link rel="stylesheet" type="text/css" href="/css/form.css">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+        <div class="xycentered-box-medium">
+            <div class="centered-content">
+                <br>
+                <br>
+                <br>
+                <h2>Registrer deg som medlem</h2>
+                <h2 id="errTarget">
+                <br>
+                </h2>
+                <form action="/register" method="POST">
+                    <div class="flex-row">
+                        <div class="form-group">
+                            <label for="firstname">Fornavn</label>
+                            <input type="text" id="firstname" name="firstname">
+                        </div>
+                    </div>
+                    <div class="flex-row">
+                        <div class="form-group">
+                            <label for="lastname">Etternavn</label>
+                            <input type="text" id="lastname" name="lastname">
+                        </div>
+                    </div>
+                    <div class="flex-row">
+                        <div class="form-group">
+                            <label for="email">Epost</label>
+                            <input type="text" id="email" name="email">
+                        </div>
+                    </div>
+                    <div class="flex-row">
+                        <div class="form-group">
+                            <label for="password">Passord</label>
+                            <input type="password" id="password" name="password">
+                        </div>
+                    </div>
+                    <div class="flex-row">
+                        <div class="form-group">
+                            <label for="confirmPassword">Bekreft passord</label>
+                            <input type="password" id="confirmPassword" name="confirmPassword">
+                        </div>
+                    </div>
+                    <div class="centered-content">
+                        <input type="submit" value="Registrer" id="registerButton">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </body>
+    <script type="text/javascript" src="/js/form_validator.js"></script>
+    <script type="text/javascript" src="/js/ajax_form_post.js"></script>
+    <script type="text/javascript">
+        
+        let fn = () => {
+            let password = document.getElementById("password");
+            let confPwd  = document.getElementById("confirmPassword");
+            let err = document.getElementById("errTarget");
+            err.style.color = "#FF0000";
+
+            if (password.value.length < 6 && confPwd.value.length < 6) {
+                err.innerHTML = "Passord må være minst 6 tegn langt.";
+            } else {
+                if (password.value === confPwd.value) {
+                    ajax_form_post(
+                        {
+                            firstname: "firstname",
+                            lastname: "lastname",
+                            email: "email",
+                            password: "password",
+                            confirmPassword: "confirmPassword"
+                        },
+                        "errTarget", "/register"
+                    );
+                } else {
+                    err.innerHTML = "Passord og bekreft passord må være like.";
+                }
+            }
+        }
+
+        form_validator(
+            "registerButton",
+            [
+                ["firstname", "fornavn er påkrevd"],
+                ["lastname", "etternavn er påkrevd"],
+                ["email", "e-mail er påkrevd"],
+                ["password", "passord er påkrevd"],
+                ["confirmPassword", "skriv inn passordet igjen"],
+            ],
+            fn);
+    </script>
+</html>

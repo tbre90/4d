@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <title>
+            <!--4dvar title-->
+        </title>
+        <link rel="stylesheet" type="text/css" href="/css/common.css">
+        <link rel="stylesheet" type="text/css" href="/css/centered_content.css">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+        <div class="xycentered-box-medium">
+            <div class="centered-content">
+                <img src="/static/course_images/<!--4dvar [course]image-->">
+
+                <div class="centered-heading">
+                    <h2>
+                        <!--4dvar [course]name-->
+                    </h2>
+                </div>
+                <h3>
+                    Du vil nå melde deg på følgende kurs:
+                </h3>
+                <div>
+                    <!--4dvar [course]name-->
+                    <!--4dvar [course_schedule]time-->
+                    <!--4dvar [course_schedule]date-->
+                </div>
+                <br>
+
+                <button id="signupToCourse">
+                    Bekreft
+                </button>
+
+                <h3 id="feedback">
+                </h3>
+
+                <a href="/" class="link-as-button">Tilbake til hovedside</a>
+            </div>
+        </div>
+    </body>
+    <script type="text/javascript">
+        let btn = document.getElementById("signupToCourse");
+        btn.addEventListener("click", function () {
+            let request = new XMLHttpRequest();
+            request.onreadystatechange = function() {
+                if (request.readyState == XMLHttpRequest.DONE) {
+                    let json = JSON.parse(request.responseText);
+                    let fb = document.getElementById("feedback");
+                    fb.innerHTML = json["message"]
+                }
+            }
+
+            let url = window.location.href;
+            let url_split = url.split("/");
+            let data = url_split.pop()
+            let msg = "data=" + data;
+            request.open("POST", window.location.href);
+            request.setRequestHeader("Content-Type", "application/json");
+            request.send(msg);
+        });
+    </script>
+</html>

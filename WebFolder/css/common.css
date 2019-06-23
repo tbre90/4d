@@ -1,0 +1,55 @@
+* {
+    font-family: "segoe ui", roboto, oxygen, ubuntu, cantarell, "fira sans", "droid sans", "helvetica neue", Arial, sans-serif;
+    font-size: 1em;
+    box-sizing: border-box;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    background-color: #a9c5d1;
+}
+
+
+@media (max-width: 480px) {
+    img {
+        max-height: 250px;
+        max-width: 100%;
+    }
+
+    h1 {
+        font-size: 2em;
+    }
+}
+@media (min-width: 481px) {
+    img {
+        max-height: 450px;
+        max-width: 500px;
+    }
+
+    h1 {
+        font-size: 3em;
+    }
+}
+
+button, input[type="submit"] {
+    background-color: #b4d9e9;
+}
+
+.link-as-button {
+    -webkit-appearance: button;
+    -moz-appearance: button;
+    appearance: button;
+    text-decoration: none;
+    color: initial;
+    background-color: #b4d9e9;
+
+    margin-top: 2px;
+    margin-bottom: 2px;
+
+    padding: 5px;
+}
+
+.link-as-button:hover {
+    background-color: #00F0F0;
+}

@@ -1,0 +1,27 @@
+.form-group {
+    display: flex;
+    flex-direction: column;
+    @media screen and (min-width: 480px) {
+        flex-direction: row;
+    }
+}
+
+.form-group {
+    margin-bottom: 1em;
+}
+
+.form-group > * {
+    flex: 1;
+}
+
+.form-group label {
+    flex: none;
+    @media screen and (min-width: 480px) {
+        order: -1;
+    }
+}
+
+.form-group input {
+    width: 100%;
+    padding: 5px;
+}

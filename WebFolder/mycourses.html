@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <title>
+            <!--4dvar title-->
+        </title>
+        <link rel="stylesheet" type="text/css" href="/css/common.css">
+        <link rel="stylesheet" type="text/css" href="/css/centered_content.css">
+        <link rel="stylesheet" type="text/css" href="/css/course.css">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+        <div class="xycentered-box-medium">
+            <div class="centered-content">
+                <br>
+                <a href="/" class="link-as-button">Tilbake til hovedside</a>
+                <br>
+                    <!--#4dcode 
+                        C_LONGINT($i)
+                        $i:=1
+                    -->
+                    <!--4dloop courses_with_schedules -->
+
+                        <!--#4dcode
+                            C_TEXT($name)
+                            C_TEXT($date)
+                            C_TEXT($time)
+
+                            $name:=OB GET(courses_with_schedules{$i};"name")
+                            $date:=OB GET(courses_with_schedules{$i};"date")
+                            $time:=OB GET(courses_with_schedules{$i};"time")
+                            $image:=OB GET(courses_with_schedules{$i};"image")
+
+                            $i:=$i+1
+                        -->
+
+                    <div class="course-box">
+                        <div class="course-box-content">
+                            <img class="course-box-img"src="/static/course_images/<!--4dvar $image-->">
+                            <div class="course-box-name">
+                                <!--4dvar $name -->
+                            </div>
+                            <div class="course-box-hook">
+                                <!--4dvar $date-->
+                                <!--4dvar $time-->
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--4dendloop-->
+            </div>
+        </div>
+    </body>
+</html>
